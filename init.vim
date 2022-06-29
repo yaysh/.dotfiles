@@ -1,3 +1,5 @@
+let mapleader = " "
+" let mapleader = "\<Space>"
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
@@ -13,6 +15,7 @@ Plug 'scalameta/nvim-metals'
 Plug 'preservim/nerdcommenter'
 Plug 'sbdchd/neoformat'
 Plug 'mfussenegger/nvim-dap'
+Plug 'airblade/vim-gitgutter'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -26,13 +29,16 @@ let g:airline_theme='onehalfdark'
 " lightline
 let g:lightline = { 'colorscheme': 'onehalfdark' }
 
-let mapleader = " "
-
 " Telescope bindings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Scala metals 
+nnoremap <leader>gd <cmd>lua vim.lsp.buf.definition()<cr>
+nnoremap <leader>gf <cmd>lua vim.lsp.buf.implementation()<cr>
+
 
 " Used for nerd commenter
 filetype plugin on
