@@ -1,2 +1,2 @@
 ln -s ~/.bashrc .bashrc
-ln -s ~/.config/nvim/init.vim init.vim
+ln -s ~/.config/nvim/init.vim initvim.txt
