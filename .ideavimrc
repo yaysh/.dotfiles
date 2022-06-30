@@ -1,0 +1,45 @@
+"source ~/.vimrc
+"" -- Suggested options --
+
+set easymotion
+set scrolloff=5
+set number relativenumber
+set ideajoin
+set idearefactormode=keep
+
+" Do incremental searching.
+set incsearch
+
+let mapleader = " "
+noremap <Esc> <nop>
+" nmap <leader>d <C-d>
+" nmap <leader>u <C-u>
+" vmap <leader>d <C-d>
+" vmap <leader>u <C-u>
+
+" actions
+vmap<leader>y "+y
+" vmap<leader>d "+d
+" nmap<leader>y "+yy
+" nmap<leader>p "+p
+" nmap<leader>P "+P
+" vmap<leader>p "+p
+" vmap<leader>P "+P
+
+nmap <leader>h <action>(PreviousTab)
+nmap <leader>l <action>(NextTab)
+nmap <leader>i <action>(Generate)
+nmap <leader>m <action>(Git.Menu)
+nmap <leader>g <action>(GotoNextError)
+nmap <leader>b <action>(ShowErrorDescription)
+nmap <leader>ff <action>(SearchEverywhere)
+nmap <leader>w <action>(CommentByLineComment)
+nmap <leader>yy <action>(ReformatCode)
+nmap <leader>q <action>(GotoImplementation)
+nmap <leader>e <action>(GotoDeclaration)
+nmap <leader>s <action>(GotoFile)
+nmap <leader>p <action>(CloseEditor)
+
+" nmap <leader>j <action>(FileChooser.NewFile)
+
+nmap <leader>dd <Action>(Debug)
