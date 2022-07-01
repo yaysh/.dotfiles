@@ -101,6 +101,8 @@ alias planner='flatpak run com.github.alainm23.planner'
 # Neovim - "correct version"
 alias nvim='~/Nvim/nvim.appimage'
 
+alias notes='nvim ~/Notes/'
+
 # Alias for xclip - useage example: ls filename | pbcopy 
 alias pbcopy='xclip -selection clipboard'
 
@@ -138,5 +140,5 @@ get_date() {
 
 export PS1="\u@\h\[\e[34m\]\[[$(get_date)] \[\e[32m\]\w \[\e[33m\]\$(parse_git_branch)\[\e[00m\]$ "
 
-bind 'TAB:complete'
+bind TAB:menu-complete
 
