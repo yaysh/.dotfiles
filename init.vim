@@ -20,8 +20,12 @@ Plug 'morhetz/gruvbox'
 Plug 'easymotion/vim-easymotion'
 Plug 'navarasu/onedark.nvim'
 Plug 'tpope/vim-fugitive'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 Plug 'mfussenegger/nvim-dap'
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -56,7 +60,6 @@ nnoremap <silent> <leader>f   <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> <leader>k  <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent> <leader>ws  <cmd>lua require'metals'.worksheet_hover()<CR>
 nnoremap <silent> <leader>a   <cmd>lua require'metals'.open_all_diagnostics()<CR>
-nnoremap <silent> <space>d    <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 nnoremap <silent> [c          <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
 nnoremap <silent> ]c          <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
 
@@ -67,34 +70,12 @@ nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
 nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
 nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
 
-" Neovim compe setup 
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
-let g:compe.min_length = 1
-let g:compe.preselect = 'enable'
-let g:compe.throttle_time = 80
-let g:compe.source_timeout = 200
-let g:compe.resolve_timeout = 800
-let g:compe.incomplete_delay = 400
-let g:compe.max_abbr_width = 100
-let g:compe.max_kind_width = 100
-let g:compe.max_menu_width = 100
-let g:compe.documentation = v:true
+" Toggleterm
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><leader>p <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
+nnoremap <silent><leader>p <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
+inoremap <silent><leader>p <Esc><Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
 
-let g:compe.source = {}
-let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:true
-let g:compe.source.ultisnips = v:true
-let g:compe.source.luasnip = v:true
-let g:compe.source.emoji = v:true
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " Used for nerd commenter
 filetype plugin on
 
@@ -136,17 +117,55 @@ endif
 " completion-nvim settings
 "-----------------------------------------------------------------------------
 " Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+lua  <<EOF
+  local cmp = require("cmp")
+  cmp.setup({
+    sources = {
+      { name = "nvim_lsp" },
+      { name = "vsnip" },
+    },
+    snippet = {
+      expand = function(args)
+        -- Comes from vsnip
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
+    mapping = cmp.mapping.preset.insert({
+      -- None of this made sense to me when first looking into this since there
+      -- is no vim docs, but you can't have select = true here _unless_ you are
+      -- also using the snippet stuff. So keep in mind that if you remove
+      -- snippets you need to remove this select
+      -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
+      ['<CR>'] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+      }),
+      -- I use tabs... some say you should stick to ins-completion but this is just here as an example
+      ["<Tab>"] = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end,
+      ["<S-Tab>"] = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end,
+    }),
+  })
+EOF
 "-----------------------------------------------------------------------------
 " Helpful general settings
 "-----------------------------------------------------------------------------
 " Needed for compltions _only_ if you aren't using completion-nvim
 autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc
-
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
 
 " Avoid showing message extra message when using completion
 set shortmess+=c
