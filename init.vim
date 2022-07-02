@@ -63,13 +63,17 @@ nnoremap <silent> <leader>ws  <cmd>lua require'metals'.worksheet_hover()<CR>
 nnoremap <silent> <leader>a   <cmd>lua require'metals'.open_all_diagnostics()<CR>
 nnoremap <silent> [c          <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
 nnoremap <silent> ]c          <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
+nnoremap <silent> <leader> mm <cmd>lua require"telescope".extensions.metals.commands()<CR>
 
 " Mapping for dap (debugging)
-nnoremap <silent> <F9> <cmd>lua require'dap'.toggle_breakpoint()<cr>
-nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
-nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
-nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
-nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>dt <cmd>lua require'dap'.toggle_breakpoint()<cr>
+nnoremap <silent> <leader>dc <Cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <leader>dso <Cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>dsi <Cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <leader>dr <Cmd>lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>dl <Cmd>lua require'dap'.run_last()<CR>
+nnoremap <silent> <leader>dK <Cmd>lua require"dap.ui.widgets".hover()<CR>
+
 
 " Nerdtree
 nnoremap <leader>n :NERDTreeFocus<CR>
