@@ -69,10 +69,12 @@ nnoremap <silent> <leader> mm <cmd>lua require"telescope".extensions.metals.comm
 nnoremap <silent> <leader>dt <cmd>lua require'dap'.toggle_breakpoint()<cr>
 nnoremap <silent> <leader>dc <Cmd>lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>dso <Cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>dsd <Cmd>lua require'dap'.down()<CR>
 nnoremap <silent> <leader>dsi <Cmd>lua require'dap'.step_into()<CR>
 nnoremap <silent> <leader>dr <Cmd>lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl <Cmd>lua require'dap'.run_last()<CR>
-nnoremap <silent> <leader>dK <Cmd>lua require"dap.ui.widgets".hover()<CR>
+nnoremap <silent> <leader>dK <Cmd>lua require'dap.ui.widgets'.hover()<CR>
+nnoremap <silent> <leader>dC <Cmd>lua require'dap'.terminate()<CR>
 
 
 " Nerdtree
