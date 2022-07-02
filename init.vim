@@ -4,28 +4,33 @@ let mapleader = " "
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/seoul256.vim'
+" Themes
+Plug 'sainnhe/everforest'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'navarasu/onedark.nvim'
+Plug 'morhetz/gruvbox'
+" Git
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+" Scala metal (or needed for it
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'scalameta/nvim-metals'
-Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
-Plug 'sbdchd/neoformat'
-Plug 'airblade/vim-gitgutter'
-Plug 'morhetz/gruvbox'
-Plug 'easymotion/vim-easymotion'
-Plug 'navarasu/onedark.nvim'
-Plug 'tpope/vim-fugitive'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+
+Plug 'tpope/vim-sensible'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -34,8 +39,8 @@ set signcolumn=yes:2
 syntax on
 set t_Co=256
 set cursorline
-colorscheme onedark
-let g:airline_theme='onedark'
+colorscheme everforest
+let g:airline_theme='everforest'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " lightline
@@ -50,20 +55,21 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader><leader>w <Plug>(easymotion-bd-w)
 nnoremap <leader>L <Plug>(easymotion-overwin-line)
 " Scala metals 
-nnoremap <silent> gd          <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K           <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gi          <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr          <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gds         <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gws         <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> <leader>rn  <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> <leader>f   <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <silent> <leader>k  <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> <leader>ws  <cmd>lua require'metals'.worksheet_hover()<CR>
-nnoremap <silent> <leader>a   <cmd>lua require'metals'.open_all_diagnostics()<CR>
-nnoremap <silent> [c          <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
-nnoremap <silent> ]c          <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
-nnoremap <silent> <leader> mm <cmd>lua require"telescope".extensions.metals.commands()<CR>
+nnoremap <silent>gd          <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>K           <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent>gi          <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent>gr          <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent>gwd         <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent>gws         <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent><leader>rn  <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent><leader>fo   <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent><leader>k  <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent><leader>ws  <cmd>lua require'metals'.worksheet_hover()<CR>
+" nnoremap <silent><leader>a   <cmd>lua require'metals'.open_all_diagnostics()<CR>
+nnoremap <silent><leader>a   <cmd>lua vim.diagnostic.setqflist()<CR>
+nnoremap <silent>[c          <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
+nnoremap <silent>]c          <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
+nnoremap <silent><leader>mm <cmd>lua require"telescope".extensions.metals.commands()<CR>
 
 " Mapping for dap (debugging)
 nnoremap <silent> <leader>dt <cmd>lua require'dap'.toggle_breakpoint()<cr>
@@ -75,7 +81,7 @@ nnoremap <silent> <leader>dr <Cmd>lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl <Cmd>lua require'dap'.run_last()<CR>
 nnoremap <silent> <leader>dK <Cmd>lua require'dap.ui.widgets'.hover()<CR>
 nnoremap <silent> <leader>dC <Cmd>lua require'dap'.terminate()<CR>
-
+nnoremap <silent> <leader>dui <cmd>lua require'dapui'.toggle()<cr>
 
 " Nerdtree
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -84,10 +90,10 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " Toggleterm
-autocmd TermEnter term://*toggleterm#*
-      \ tnoremap <silent><leader>p <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
-nnoremap <silent><leader>p <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
-inoremap <silent><leader>p <Esc><Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
+" autocmd TermEnter term://*toggleterm#*
+"       \ tnoremap <silent><leader>p <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
+"nnoremap <silent><leader>p <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
+"inoremap <silent><leader>p <Esc><Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
 
 " Used for nerd commenter
 filetype plugin on
@@ -214,3 +220,62 @@ set shortmess+=c
 
 " Ensure autocmd works for Filetype
 set shortmess-=F
+
+" DAP UI
+lua <<EOF
+  require("dapui").setup({
+    icons = { expanded = "▾", collapsed = "▸" },
+    mappings = {
+      -- Use a table to apply multiple mappings
+      expand = { "<CR>", "<2-LeftMouse>" },
+      open = "o",
+      remove = "d",
+      edit = "e",
+      repl = "r",
+      toggle = "t",
+    },
+    -- Expand lines larger than the window
+    -- Requires >= 0.7
+    expand_lines = vim.fn.has("nvim-0.7"),
+    -- Layouts define sections of the screen to place windows.
+    -- The position can be "left", "right", "top" or "bottom".
+    -- The size specifies the height/width depending on position. It can be an Int
+    -- or a Float. Integer specifies height/width directly (i.e. 20 lines/columns) while
+    -- Float value specifies percentage (i.e. 0.3 - 30% of available lines/columns)
+    -- Elements are the elements shown in the layout (in order).
+    -- Layouts are opened in order so that earlier layouts take priority in window sizing.
+    layouts = {
+      {
+        elements = {
+        -- Elements can be strings or table with id and size keys.
+          { id = "scopes", size = 0.25 },
+          "breakpoints",
+          "stacks",
+          "watches",
+        },
+        size = 40, -- 40 columns
+        position = "left",
+      },
+      {
+        elements = {
+          "repl",
+          "console",
+        },
+        size = 0.25, -- 25% of total lines
+        position = "bottom",
+      },
+    },
+    floating = {
+      max_height = nil, -- These can be integers or a float between 0 and 1.
+      max_width = nil, -- Floats will be treated as percentage of your screen.
+      border = "single", -- Border style. Can be "single", "double" or "rounded"
+      mappings = {
+        close = { "q", "<Esc>" },
+      },
+    },
+    windows = { indent = 1 },
+    render = {
+      max_type_length = nil, -- Can be integer or nil.
+    }
+  })
+EOF
