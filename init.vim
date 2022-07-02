@@ -13,8 +13,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'scalameta/nvim-metals'
 Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
 Plug 'sbdchd/neoformat'
-Plug 'mfussenegger/nvim-dap'
 Plug 'airblade/vim-gitgutter'
 Plug 'morhetz/gruvbox'
 Plug 'easymotion/vim-easymotion'
@@ -30,6 +30,7 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
 call plug#end()
 
 set number relativenumber
+set signcolumn=yes:2
 syntax on
 set t_Co=256
 set cursorline
@@ -69,6 +70,12 @@ nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
 nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
 nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
 nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+
+" Nerdtree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 " Toggleterm
 autocmd TermEnter term://*toggleterm#*
@@ -160,6 +167,35 @@ lua  <<EOF
       end,
     }),
   })
+EOF
+
+lua <<EOF
+  -- Debug settings if you're using nvim-dap
+  local dap = require("dap")
+  
+  dap.configurations.scala = {
+    {
+      type = "scala",
+      request = "launch",
+      name = "RunOrTest",
+      metals = {
+        runType = "runOrTestFile",
+        --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+      },
+    },
+    {
+      type = "scala",
+      request = "launch",
+      name = "Test Target",
+      metals = {
+        runType = "testTarget",
+      },
+    },
+  }
+  
+  metals_config.on_attach = function(client, bufnr)
+    require("metals").setup_dap()
+  end
 EOF
 "-----------------------------------------------------------------------------
 " Helpful general settings
