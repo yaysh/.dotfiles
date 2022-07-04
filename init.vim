@@ -32,6 +32,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 " Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
