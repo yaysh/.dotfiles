@@ -1,45 +1,35 @@
-"source ~/.vimrc
-"" -- Suggested options --
-
 set easymotion
-set scrolloff=5
+set NERDTree
+set commentary
+set scrolloff=6
 set number relativenumber
 set ideajoin
 set idearefactormode=keep
-
-" Do incremental searching.
+Plug 'tpope/vim-surround'
 set incsearch
-
 let mapleader = " "
+
 noremap <Esc> <nop>
-" nmap <leader>d <C-d>
-" nmap <leader>u <C-u>
-" vmap <leader>d <C-d>
-" vmap <leader>u <C-u>
-
-" actions
-vmap<leader>y "+y
-" vmap<leader>d "+d
-" nmap<leader>y "+yy
-" nmap<leader>p "+p
-" nmap<leader>P "+P
-" vmap<leader>p "+p
-" vmap<leader>P "+P
-
 nmap <leader>h <action>(PreviousTab)
 nmap <leader>l <action>(NextTab)
 nmap <leader>i <action>(Generate)
 nmap <leader>m <action>(Git.Menu)
-nmap <leader>g <action>(GotoNextError)
-nmap <leader>b <action>(ShowErrorDescription)
-nmap <leader>ff <action>(SearchEverywhere)
-nmap <leader>w <action>(CommentByLineComment)
-nmap <leader>yy <action>(ReformatCode)
-nmap <leader>q <action>(GotoImplementation)
-nmap <leader>e <action>(GotoDeclaration)
-nmap <leader>s <action>(GotoFile)
-nmap <leader>p <action>(CloseEditor)
-
-" nmap <leader>j <action>(FileChooser.NewFile)
-
-nmap <leader>dd <Action>(Debug)
+nmap <leader>ee <action>(GotoNextError)
+nmap <leader>ef <action>(ShowErrorDescription)
+nmap <leader>ff <action>(GotoFile)
+nmap <leader>fg <action>(GotoSymbol)
+nmap <leader>fo <action>(ReformatCode)
+nmap <leader>k <action>(ShowIntentionActions)
+nmap <leader>rn <action>(RefactoringMenu)
+nmap <leader>gi <action>(GotoImplementation)
+nmap <leader>gr <action>(FindUsages)
+nmap<leader>dd <Action>(Debug)
+nmap <leader>ds <Action>(Stop)
+nmap <leader>dw <Action>(Debugger.AddToWatch)
+nmap <leader>dt <Action>(ToggleLineBreakpoint)
+nmap <leader>dso <action>(StepOver)
+nmap <leader>dsi <action>(StepInto)
+nmap <leader>df <action>(QuickEvaluateExpression)
+nmap <leader>t :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeFocus<CR>
+nmap <leader><leader>w <Plug>(easymotion-bd-w)

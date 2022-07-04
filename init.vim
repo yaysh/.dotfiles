@@ -1,5 +1,7 @@
 let mapleader = " "
+" Hello
 " let mapleader = "\<Space>"
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
@@ -29,7 +31,7 @@ Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
-Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+" Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
