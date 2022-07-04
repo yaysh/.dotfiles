@@ -1,6 +1,4 @@
 let mapleader = " "
-" Hello
-" let mapleader = "\<Space>"
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
@@ -11,11 +9,13 @@ Plug 'sainnhe/everforest'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'navarasu/onedark.nvim'
 Plug 'morhetz/gruvbox'
+
 " Git
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+
 " Scala metal (or needed for it
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -27,7 +27,6 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 
-Plug 'tpope/vim-sensible'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
@@ -35,22 +34,48 @@ Plug 'easymotion/vim-easymotion'
 Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
 set number relativenumber
 set signcolumn=yes:2
 syntax on
-set t_Co=256
-set cursorline
-colorscheme everforest
-let g:airline_theme='everforest'
+" set cursorline
+
+" Colorscheme
+if has('termguicolors')
+    set termguicolors
+endif
+
+" For dark version.
+set background=dark
+    
+"For light version.
+" set background=light
+ 
+" Set contrast.
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'soft'
+
+" For better performance
+let g:everforest_better_performance = 1
+ 
+
+let g:airline_theme='transparent'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" lightline
-let g:lightline = { 'colorscheme': 'gruvbox' }
 
+" colorscheme everforest
+colorscheme everforest
+" Transparent background
+highlight Normal guibg=none
+highlight NonText guibg=none
+highlight VertSplit ctermbg=NONE
+highlight VertSplit ctermfg=NONE
+hi EndOfBuffer guibg=none ctermbg=none
+" highlight NonText ctermbg=NONE guibg=NONE
 " Telescope bindings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -144,7 +169,7 @@ endif
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
-lua  <<EOF
+:lua  <<EOF
   local cmp = require("cmp")
   cmp.setup({
     sources = {
@@ -186,7 +211,7 @@ lua  <<EOF
   })
 EOF
 
-lua <<EOF
+:lua <<EOF
   -- Debug settings if you're using nvim-dap
   local dap = require("dap")
   
@@ -227,7 +252,7 @@ set shortmess+=c
 set shortmess-=F
 
 " DAP UI
-lua <<EOF
+:lua <<EOF
   require("dapui").setup({
     icons = { expanded = "▾", collapsed = "▸" },
     mappings = {
