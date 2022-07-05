@@ -64,7 +64,7 @@ let g:everforest_better_performance = 1
  
 
 let g:airline_theme='transparent'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 
 " colorscheme everforest
