@@ -6,3 +6,4 @@ mv -f .ideavimrc ~/.ideavimrc
 ln ~/.bashrc .bashrc
 ln ~/.config/nvim/init.vim init.vim
 ln ~/.ideavimrc .ideavimrc
+ln ~/.config/nvim/* ./nvim
