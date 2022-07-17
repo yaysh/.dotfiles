@@ -31,7 +31,11 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 " Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
-Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+" Plug 'akinsho/toggleterm.nvim', {'tag' : 'v1.*'}
+
+" Order of the two below are important
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
@@ -77,14 +81,15 @@ highlight VertSplit ctermbg=NONE
 highlight VertSplit ctermfg=NONE
 hi EndOfBuffer guibg=none ctermbg=none
 " highlight NonText ctermbg=NONE guibg=NONE
+
 " Telescope bindings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
 nnoremap <leader><leader>w <Plug>(easymotion-bd-w)
 nnoremap <leader>L <Plug>(easymotion-overwin-line)
+
 " Scala metals 
 nnoremap <silent>gd          <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>K           <cmd>lua vim.lsp.buf.hover()<CR>
@@ -102,7 +107,7 @@ nnoremap <silent>[c          <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = fals
 nnoremap <silent>]c          <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
 nnoremap <silent><leader>mm <cmd>lua require"telescope".extensions.metals.commands()<CR>
 
- Mapping for dap (debugging)
+" Mapping for dap (debugging)
 nnoremap <silent> <leader>dt <cmd>lua require'dap'.toggle_breakpoint()<cr>
 nnoremap <silent> <leader>dc <Cmd>lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>dso <Cmd>lua require'dap'.step_over()<CR>
@@ -120,6 +125,14 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
+" Bufferlines
+lua << EOF
+    require("bufferline").setup{}
+EOF
+nnoremap <silent>H :BufferLineCycleNext<CR>
+nnoremap <silent>L :BufferLineCyclePrev<CR>
+nnoremap <silent>[L :BufferLineMoveNext<CR>
+nnoremap <silent>]L :BufferLineMovePrev<CR>
 " Toggleterm
 " autocmd TermEnter term://*toggleterm#*
 "       \ tnoremap <silent><leader>p <Cmd>exe v:count1 . "ToggleTerm direction=horizontal"<CR>
