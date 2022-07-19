@@ -15,3 +15,8 @@ vim.cmd ([[
     highlight VertSplit ctermfg=NONE
     hi EndOfBuffer guibg=none ctermbg=none
 ]])
+
+
+require('lualine').setup {
+    options = { theme  = "everforest" },
+  }
