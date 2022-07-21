@@ -1,6 +1,7 @@
-vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 vim.opt.termguicolors = true
-require('lualine').setup {
-    options = { theme  = "catppuccin" },
-  }
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 vim.cmd[[colorscheme catppuccin]]
+
+require('lualine').setup {
+    options = { theme  = "catppuccin" }
+}

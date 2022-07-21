@@ -1,6 +1,10 @@
 -- Install packer
 require('plugins')
 
+-- Colors before setup
+-- require('colors/catpuccin')
+require('colors/nightfox')
+
 -- All configurations for plugins
 require('plugins/configs/cmp')
 require('plugins/configs/dap-ui')
@@ -13,6 +17,3 @@ require('plugins/configs/bufferline')
 require('settings/options')
 require('settings/keymaps')
 
--- And finally, colors
-require('colors/catpuccin')
--- require('colors/everforest_transparent')
