@@ -87,6 +87,7 @@ packer.startup(function(use)
     use 'tpope/vim-commentary'
     use 'tpope/vim-sensible'
     use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+    use 'xiyaowong/nvim-transparent'
    -- Automatically set up your configuration after cloning packer.nvim
    -- Put this at the end after all plugins
    if Packer_Bootstrap then

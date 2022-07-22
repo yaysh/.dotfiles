@@ -10,5 +10,7 @@ vim.opt_global.completeopt = { "menuone", "noinsert", "noselect" }
 vim.opt_global.shortmess:remove("F"):append("c")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.opt.splitright = true
+vim.opt.termguicolors = true
 -- vim.cmd("syntax on")
 -- set cursorline
