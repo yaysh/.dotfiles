@@ -1,4 +1,5 @@
-vim.cmd("colorscheme nordfox")
+-- nightfox dayfox dawnfox duskfox nordfox terafox
+vim.cmd("colorscheme duskfox")
 require('lualine').setup {
-    options = { theme  = "nordfox" },
+    options = { theme  = "duskfox" },
 }

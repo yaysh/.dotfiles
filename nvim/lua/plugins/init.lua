@@ -32,7 +32,8 @@ packer.startup(function(use)
     use 'nvim-lua/plenary.nvim'            -- avoids callbacks, used by other plugins
     use 'nvim-lua/popup.nvim'              -- popup for other plugins
     use 'nvim-treesitter/nvim-treesitter'  -- language parsing completion engine
-    use 'williamboman/nvim-lsp-installer'  -- UI for fetching/downloading LSPs
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
     use 'neovim/nvim-lspconfig'            -- language server protocol implementation
     
     -- Themes
@@ -86,6 +87,7 @@ packer.startup(function(use)
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
     use 'tpope/vim-sensible'
+    use 'norcalli/nvim-colorizer.lua'
     use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
     use 'xiyaowong/nvim-transparent'
    -- Automatically set up your configuration after cloning packer.nvim

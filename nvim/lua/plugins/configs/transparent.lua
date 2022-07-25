@@ -1,7 +1,18 @@
 require("transparent").setup({
-    enable = true,
+    enable = false,
     extra_groups = {
+        -- Cmp
+        "CmpPmenu",
+        "CmpPmenuBorder",
         -- Lualine
+        "lualine_x_filetype_DevIconLua_normal",
+"lualine_x_filetype_DevIconLua_insert",
+"lualine_x_filetype_DevIconLua_visual",
+"lualine_x_filetype_DevIconLua_replace",
+"lualine_x_filetype_DevIconLua_command",
+"lualine_x_filetype_DevIconLua_terminal",
+"lualine_x_filetype_DevIconLua_inactive",
+        --
         "lualine_b_terminal",
         "lualine_c_terminal",
         "lualine_a_terminal",

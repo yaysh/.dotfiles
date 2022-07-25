@@ -1,10 +1,21 @@
 local function map(mode, shortcut, command)
- vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
 
 local function nmap(shortcut, command)
- map("n", shortcut, command)
+    map("n", shortcut, command)
 end
+
+local function inoremap(shortcut, command)
+    map("i", shortcut, command)
+end
+-- Autocomplete brackets 
+inoremap('{<CR>', '{<Cr>}<Esc>ko')
+inoremap('(', '()<Esc>ha')
+inoremap('[', '[]<Esc>ha')
+inoremap('"', '""<Esc>ha')
+inoremap("'", "\'\'<Esc>ha")
+inoremap('`', '``<Esc>ha')
 
 -- Telescope bindings
 nmap("<leader>ff", "<cmd>Telescope find_files<CR>")
@@ -29,7 +40,7 @@ nmap("<leader>a", "<cmd>lua vim.diagnostic.setqflist()<CR>")
 nmap("[c", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 nmap("]c", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
 nmap("<leader>mm", '<cmd>lua require"telescope".extensions.metals.commands()<CR>')
-nmap("<leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>")
+nmap("<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
 
 -- Mapping for dap (debugging)
 nmap("<leader>dt", '<cmd>lua require"dap".toggle_breakpoint()<CR>')
