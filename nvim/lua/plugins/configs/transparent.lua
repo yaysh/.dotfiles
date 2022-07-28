@@ -1,5 +1,5 @@
 require("transparent").setup({
-    enable = false,
+    enable = true,
     extra_groups = {
         -- Cmp
         "CmpPmenu",

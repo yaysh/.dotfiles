@@ -1,9 +1,10 @@
 -- Install packer
 require('plugins')
+require('settings/options')
 -- Colors before setup
 -- require('colors/catpuccin')
-require('colors/nightfox')
--- require('colors/everforest')
+-- require('colors/nightfox')
+require('colors/everforest')
 
 -- All configurations for plugins
 require('plugins/configs/cmp')
@@ -21,6 +22,5 @@ require('plugins/configs/transparent')
 require('plugins/configs/nvim-colorizer')
 
 -- All settings
-require('settings/options')
 require('settings/keymaps')
 
