@@ -1,5 +1,6 @@
 
 local present, cmp = pcall(require, "cmp")
+local luasnip = require('luasnip')
 if not present then
     return
  end
@@ -8,11 +9,13 @@ if not present then
     sources = {
       { name = "nvim_lsp" },
       { name = "vsnip" },
+      { name = "luasnip" }
     },
     snippet = {
       expand = function(args)
         -- Comes from vsnip
         vim.fn["vsnip#anonymous"](args.body)
+        luasnip.lsp_expand(args.body)
       end,
     },
     mapping = cmp.mapping.preset.insert({
@@ -29,6 +32,8 @@ if not present then
       ["<Tab>"] = function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
         else
           fallback()
         end
@@ -36,6 +41,8 @@ if not present then
       ["<S-Tab>"] = function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
         else
           fallback()
         end

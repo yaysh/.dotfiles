@@ -20,6 +20,7 @@ require('plugins/configs/nvim-tree')
 require('plugins/configs/bufferline')
 require('plugins/configs/transparent')
 require('plugins/configs/nvim-colorizer')
+require('plugins/configs/luasnip')
 
 -- All settings
 require('settings/keymaps')

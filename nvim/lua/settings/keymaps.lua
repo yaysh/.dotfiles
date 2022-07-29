@@ -17,6 +17,10 @@ inoremap('"', '""<Esc>ha')
 inoremap("'", "\'\'<Esc>ha")
 inoremap('`', '``<Esc>ha')
 
+-- Snippet
+-- nmap("<TAB>", "<cmd>lua require('luasnip').jump(1)<Cr>")
+-- nmap("<S-TAB>", "<cmd>lua require('luasnip').jump(-1)<Cr>")
+
 -- Telescope bindings
 nmap("<leader>ff", "<cmd>Telescope find_files<CR>")
 nmap("<leader>fg", "<cmd>Telescope live_grep<CR>")
