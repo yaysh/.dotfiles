@@ -3,8 +3,8 @@ background = #222
 background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
-; primary = #154f3D
+; primary = #ffb52a
+primary = #aaddbb
 secondary = #e60053
 alert = #bd2c40
 border-color = #154f3D
@@ -38,6 +38,7 @@ font-1 = JetBrainsMono Nerd Font Mono:fontformat=truetype:size=8:antialias=false
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
+; modules-center = jamaica
 ; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 modules-right = cpu temperature wired-network filesystem  pulseaudio date 
 
@@ -49,6 +50,9 @@ separator-foreground = ${colors.foreground-alt}
 cursor-click = pointer
 cursor-scroll = ns-resize
 bottom = true
+
+; [module/jamaica]
+
 
 [module/wired-network]
 type = internal/network
