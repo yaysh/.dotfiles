@@ -69,6 +69,7 @@ listview {
   background-color: @bg;
   columns: 1;
   lines: 8;
+  margin: -1px;
 }
 
 mainbox {
