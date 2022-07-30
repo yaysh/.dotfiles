@@ -14,7 +14,7 @@ if not present then
     snippet = {
       expand = function(args)
         -- Comes from vsnip
-        vim.fn["vsnip#anonymous"](args.body)
+       -- vim.fn["vsnip#anonymous"](args.body)
         luasnip.lsp_expand(args.body)
       end,
     },

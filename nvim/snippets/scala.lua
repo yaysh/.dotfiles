@@ -8,8 +8,6 @@ local fmt = require('luasnip.extras.fmt').fmt
 local snippets, autosnippets = {}, {}
 
 local group = vim.api.nvim_create_augroup("Lua Snippets", { clear = true })
--- local file_pattern = "*.scala"
-local file_pattern = "*.lua"
 
 local forComprehensionSnippet = s("for", fmt(
     [[
@@ -23,8 +21,4 @@ def {}({}) = for {{
     i(4, ""),
 }))
 table.insert(snippets, forComprehensionSnippet)
-
-
-
-
 return snippets, autosnippets
