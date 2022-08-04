@@ -65,3 +65,9 @@ nmap("<C-p>", ':terminal<CR>')
 -- Bufferlines
 nmap("L", ":BufferLineCycleNext<CR>")
 nmap("H", ":BufferLineCyclePrev<CR>")
+
+-- Good yank
+-- nmap("<leader>y", '"*y')
+-- nmap("<leader>p", '"*p')
+-- nmap("<leader>Y", '"+y')
+-- nmap("<leader>P", '"+p')
