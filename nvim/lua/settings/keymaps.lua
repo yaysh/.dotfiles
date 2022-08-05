@@ -16,7 +16,8 @@ inoremap('[', '[]<Esc>ha')
 inoremap('"', '""<Esc>ha')
 inoremap("'", "\'\'<Esc>ha")
 inoremap('`', '``<Esc>ha')
-
+-- Test
+nmap("<leader>zz", "<cmd> lua require'JVMTestGenerator'.create_file()<CR>")
 -- Telescope bindings
 nmap("<leader>ff", "<cmd>Telescope find_files<CR>")
 nmap("<leader>fg", "<cmd>Telescope live_grep<CR>")

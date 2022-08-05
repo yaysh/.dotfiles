@@ -2,6 +2,7 @@ rm -rf ~/.config/nvim
 rm -rf ~/.config/i3
 rm -rf ~/.config/polybar
 rm -rf ~/.config/rofi
+rm ~/.tmux.conf
 rm ~/.bashrc
 rm ~/.ideavimrc
 rm ~/.inputrc
@@ -14,5 +15,6 @@ ln .bashrc ~/.bashrc
 ln .inputrc ~/.inputrc
 ln .ideavimrc ~/.ideavimrc
 ln picom.conf ~/.config/picom.conf
+ln .tmux.conf ~/.tmux.conf
 
 chmod +x ~/.config/polybar/launch.sh
