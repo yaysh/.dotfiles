@@ -27,7 +27,8 @@ new_window pixel 1
 # client.focused #aaddbb #aaddbb #aaddbb #aaddbb #aaddbb
 client.focused #02700d #02700d #02700d #02700d #02700d
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+bindsym $mod+Print exec gnome-screenshot -i 
+bindsym Print exec gnome-screenshot -a
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
@@ -198,3 +199,5 @@ bindsym $mod+r mode "resize"
 #         # font pango:DejaVu Sans Mono 10
 #         # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # }
+
+
