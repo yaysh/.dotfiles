@@ -1,6 +1,7 @@
-set easymotion
 set NERDTree
 set commentary
+Plug 'easymotion/vim-easymotion'
+set easymotion
 set scrolloff=6
 set number relativenumber
 set ideajoin
@@ -10,11 +11,12 @@ set incsearch
 let mapleader = " "
 
 noremap <Esc> <nop>
-nmap <leader>h <action>(PreviousTab)
-nmap <leader>l <action>(NextTab)
+nmap H <action>(PreviousTab)
+nmap L <action>(NextTab)
 nmap <leader>i <action>(Generate)
 nmap <leader>m <action>(Git.Menu)
 nmap <leader>ee <action>(GotoNextError)
+nmap <leader>er <action>(E)
 nmap <leader>ef <action>(ShowErrorDescription)
 nmap <leader>ff <action>(GotoFile)
 nmap <leader>fg <action>(GotoSymbol)
@@ -23,13 +25,17 @@ nmap <leader>k <action>(ShowIntentionActions)
 nmap <leader>rn <action>(RefactoringMenu)
 nmap <leader>gi <action>(GotoImplementation)
 nmap <leader>gr <action>(FindUsages)
-nmap<leader>dd <Action>(Debug)
+nmap<leader>dc <Action>(Debug)
+nmap<leader>dq <action>(Resume)
 nmap <leader>ds <Action>(Stop)
 nmap <leader>dw <Action>(Debugger.AddToWatch)
 nmap <leader>dt <Action>(ToggleLineBreakpoint)
-nmap <leader>dso <action>(StepOver)
-nmap <leader>dsi <action>(StepInto)
+nmap <leader>dm <Action>(DebuggerActions)
+nmap <leader><F10> <action>(StepOver)
+nmap <leader><F11> <action>(StepInto)
 nmap <leader>df <action>(QuickEvaluateExpression)
+nmap K <action>(QuickEvaluateExpression)
 nmap <leader>t :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFocus<CR>
+nmap <leader>vv <action>(EvaluateExpression)
 nmap <leader><leader>w <Plug>(easymotion-bd-w)

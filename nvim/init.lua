@@ -11,12 +11,12 @@ require('plugins/configs/cmp')
 require('plugins/configs/dap-ui')
 require('plugins/configs/mason')
 require('plugins/configs/lsp-config')
-require('plugins/configs/metals-lsp')
 require('plugins/configs/nvim-tree')
 require('plugins/configs/bufferline')
 require('plugins/configs/transparent')
 require('plugins/configs/nvim-colorizer')
 require('plugins/configs/luasnip')
+require('plugins/configs/metals-lsp')
 
 -- All settings
 require('settings/keymaps')

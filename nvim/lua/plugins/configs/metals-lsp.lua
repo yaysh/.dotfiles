@@ -33,8 +33,35 @@ dap.configurations.scala = {
   },
 }
 
+local function map(mode, shortcut, command)
+    vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+end
+
+local function nmap(shortcut, command)
+    map("n", shortcut, command)
+end
+
+local function inoremap(shortcut, command)
+    map("i", shortcut, command)
+end
 metals_config.on_attach = function(client, bufnr)
   require("metals").setup_dap()
+
+    nmap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+    nmap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+    nmap("gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+    nmap("gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+    nmap("gwd", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
+    nmap("gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
+    nmap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+    nmap("<leader>fo", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+    nmap("<leader>k", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+    nmap("<leader>ws", '<cmd>lua require"metals".worksheet_hover()<CR>')
+    nmap("<leader>a", "<cmd>lua vim.diagnostic.setqflist()<CR>")
+    nmap("]]", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
+    nmap("[[", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
+    nmap("<leader>mm", '<cmd>lua require"telescope".extensions.metals.commands()<CR>')
+    nmap("<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
 end
 
 -- Autocmd that will actually be in charging of starting the whole thing
