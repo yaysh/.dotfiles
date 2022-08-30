@@ -4,10 +4,12 @@ require('settings/options')
 -- Colors before setup
 -- require('colors/catpuccin')
 -- require('colors/nightfox')
-require('colors/everforest')
+-- require('colors/everforest')
+require('colors/neovim-ayu')
 
 -- All configurations for plugins
 require('plugins/configs/cmp')
+require('plugins/configs/nvim-dap')
 require('plugins/configs/dap-ui')
 require('plugins/configs/mason')
 require('plugins/configs/lsp-config')

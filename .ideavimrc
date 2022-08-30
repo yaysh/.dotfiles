@@ -6,6 +6,7 @@ set scrolloff=6
 set number relativenumber
 set ideajoin
 set idearefactormode=keep
+set clipboard+=unnamed
 Plug 'tpope/vim-surround'
 set incsearch
 let mapleader = " "
@@ -13,10 +14,14 @@ let mapleader = " "
 noremap <Esc> <nop>
 nmap H <action>(PreviousTab)
 nmap L <action>(NextTab)
+nmap <leader>ww <action>(CloseEditor)
+nmap <leader>pp <action>(Profiler)
 nmap <leader>i <action>(Generate)
 nmap <leader>m <action>(Git.Menu)
+nmap <leader>P <action>(Run)
+nmap <leader>O <action>(Stop)
+nmap <leader>a <action>(ProblemsView.OpenInPreviewTab)
 nmap <leader>ee <action>(GotoNextError)
-nmap <leader>er <action>(E)
 nmap <leader>ef <action>(ShowErrorDescription)
 nmap <leader>ff <action>(GotoFile)
 nmap <leader>fg <action>(GotoSymbol)
@@ -27,6 +32,7 @@ nmap <leader>gi <action>(GotoImplementation)
 nmap <leader>gr <action>(FindUsages)
 nmap<leader>dc <Action>(Debug)
 nmap<leader>dq <action>(Resume)
+nmap<leader>bb <action>(Back)
 nmap <leader>ds <Action>(Stop)
 nmap <leader>dw <Action>(Debugger.AddToWatch)
 nmap <leader>dt <Action>(ToggleLineBreakpoint)
