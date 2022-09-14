@@ -12,13 +12,58 @@ local forComprehensionSnippet = s("for", fmt(
 def {}({}) = for {{
     {}
 }} yield ({})
-]], {
+]]   , {
     i(1, ""),
     i(2, ""),
     i(3, ""),
     i(4, ""),
 }))
 
+
+local zRepo = s("zzrepo", fmt(
+    [[
+import io.getquill.*
+import io.getquill.jdbczio.Quill
+import zio.*
+
+case class {}(id: Int)
+
+trait {}Repo {{
+  def getAll: ZIO[Any, Throwable, List[{}] ]
+  }}
+
+object {}Repo {{
+  def getAll: ZIO[{}Repo, Throwable, List[{}] ] =
+    ZIO.serviceWithZIO[{}Repo](_.getAll)
+}}
+
+case class {}RepoImpl(quill: Quill.Postgres[SnakeCase]) extends {}Repo {{
+  override def getAll: ZIO[Any, Throwable, List[{}] ] =
+    import quill.*
+    for {{
+      entities <- quill.run(query[{}])
+  }} yield entities
+}}
+
+object {}RepoImpl {{
+  val layer = ZLayer.fromFunction({}RepoImpl.apply _)
+}}
+]]   , {
+    i(1, ""),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+    r(1),
+}
+))
 
 local zioRepo = s("zrepo", fmt(
     [[
@@ -39,7 +84,7 @@ object {}Service {{
     ZIO.serviceWithZIO[{}Service](_.getAll)
   val live = ZLayer.fromFunction(new {}Service(_))
 }}
-]], {
+]]   , {
     i(1, ""),
     r(1),
     r(1),
@@ -54,4 +99,5 @@ object {}Service {{
 }))
 table.insert(snippets, forComprehensionSnippet)
 table.insert(snippets, zioRepo)
+table.insert(snippets, zRepo)
 return snippets, autosnippets

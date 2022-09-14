@@ -52,7 +52,25 @@ require('lspconfig')['rust_analyzer'].setup {
     capabilities = capabilities,
     flags = lsp_flags,
     settings = {
-        ["rust-analyzer"] = {}
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+            checkOnSave = {
+                command = "clippy"
+            }
+        }
     }
 }
 require('lspconfig')['html'].setup {
