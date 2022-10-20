@@ -109,6 +109,10 @@ alias pbcopy='xclip -selection clipboard'
 
 # Alias for ma scripts
 alias watch='~/.scripts/rerun.sh'
+
+alias codelldb='/home/jens/.local/share/nvim/mason/bin/codelldb'
+
+export 'lldb-vscode'='/home/jens/.vscode/extensions/lanza.lldb-vscode-0.2.3/bin/darwin/bin/lldb-vscode'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

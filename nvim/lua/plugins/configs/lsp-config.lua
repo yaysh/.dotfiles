@@ -78,10 +78,10 @@ require('lspconfig')['html'].setup {
     flags = lsp_flags,
     capabilities = capabilities
 }
-require('lspconfig')['eslint'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags
-}
+-- require('lspconfig')['eslint'].setup {
+--     on_attach = on_attach,
+--     flags = lsp_flags
+-- }
 require('lspconfig')['sumneko_lua'].setup {
     on_attach = on_attach,
     flags = lsp_flags
