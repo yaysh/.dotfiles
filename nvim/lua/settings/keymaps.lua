@@ -39,7 +39,7 @@ nmap("<leader>dsd", '<Cmd>lua require"dap".down()<CR>')
 nmap("<leader>dsi", '<Cmd>lua require"dap".step_into()<CR>')
 nmap("<leader>dr", '<Cmd>lua require"dap".repl.open()<CR>')
 nmap("<leader>dl", '<Cmd>lua require"dap".run_last()<CR>')
-nmap("<leader>dK", '<Cmd>lua require"dap.ui.widgets".hover()<CR>')
+nmap("<leader>dk", '<Cmd>lua require"dap.ui.widgets".hover()<CR>')
 nmap("<leader>dC", '<Cmd>lua require"dap".terminate()<CR>')
 nmap("<leader>dui", '<cmd>lua require"dapui".toggle()<CR>')
 

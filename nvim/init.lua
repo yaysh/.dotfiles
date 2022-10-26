@@ -19,7 +19,9 @@ require('plugins/configs/transparent')
 require('plugins/configs/nvim-colorizer')
 require('plugins/configs/luasnip')
 require('plugins/configs/metals-lsp')
+require('plugins/configs/neovim-coverage')
 
 -- All settings
 require('settings/keymaps')
+require('settings/autocommands')
 
