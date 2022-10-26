@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd('BufWinEnter', {
-    pattern = { "*.ts", "*.js" },
+    pattern = { "*.ts", "*.js", "*.rs" },
     command = ":Coverage"
 })
 
