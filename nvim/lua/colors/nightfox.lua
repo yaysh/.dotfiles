@@ -1,5 +1,7 @@
 -- nightfox dayfox dawnfox duskfox nordfox terafox
-vim.cmd("colorscheme duskfox")
+vim.cmd("colorscheme carbonfox")
 require('lualine').setup {
-    options = { theme  = "duskfox" },
+    options = { theme = "carbonfox" },
 }
+
+vim.g['transparent_enabled'] = 'v:false'

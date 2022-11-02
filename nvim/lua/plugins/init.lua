@@ -47,6 +47,7 @@ packer.startup(function(use)
     })
     use "EdenEast/nightfox.nvim"
     use 'Shatur/neovim-ayu'
+    use 'projekt0n/github-nvim-theme'
 
     -- Code Coverage
     use({
