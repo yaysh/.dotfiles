@@ -40,7 +40,7 @@ packer.startup(function(use)
     -- Themes
     use 'sainnhe/everforest'
     use 'navarasu/onedark.nvim'
-    use 'gruvbox-community/gruvbox'
+    use { "ellisonleao/gruvbox.nvim" }
     use({
         "catppuccin/nvim",
         as = "catppuccin"

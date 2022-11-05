@@ -143,9 +143,10 @@ parse_git_branch() {
 get_date() {
     date +'%H:%M:%S'
 }     
-
-export PS1="\u@\h\[\e[34m\]\[[$(get_date)] \[\e[32m\]\w \[\e[93m\]\$(parse_git_branch)\[\e[00m\]$ "
-
+# og
+# export PS1="\u@\h\[\e[34m\]\[[$(get_date)] \[\e[32m\]\w \[\e[93m\]\$(parse_git_branch)\[\e[00m\]$ "
+# og
+export PS1="\u@\h\[\e[34m\] [\t\[$(tput sgr0)\]\[\e[34m\]] \[\e[32m\]\w \[\e[93m\]\$(parse_git_branch)\[\e[00m\]$ "
 # Used for code coverage of rust
 export RUSTFLAGS="-Cinstrument-coverage"
 export LLVM_PROFILE_FILE="jens-%p-%m.profraw"
