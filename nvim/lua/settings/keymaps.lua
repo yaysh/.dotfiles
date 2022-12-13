@@ -9,7 +9,8 @@ end
 local function inoremap(shortcut, command)
     map("i", shortcut, command)
 end
--- Autocomplete brackets 
+
+-- Autocomplete brackets
 inoremap('{<CR>', '{<Cr>}<Esc>ko')
 inoremap('(', '()<Esc>ha')
 inoremap('[', '[]<Esc>ha')
@@ -17,7 +18,7 @@ inoremap('"', '""<Esc>ha')
 inoremap("'", "\'\'<Esc>ha")
 inoremap('`', '``<Esc>ha')
 -- Test
-nmap("<leader>zz", "<cmd> lua require'JVMTestGenerator'.create_file()<CR>")
+-- nmap("<leader>zz", "<cmd> lua require'JVMTestGenerator'.create_file()<CR>")
 -- Telescope bindings
 nmap("<leader>ff", "<cmd>Telescope find_files<CR>")
 nmap("<leader>fg", "<cmd>Telescope live_grep<CR>")
@@ -29,8 +30,8 @@ nmap("<leader>L", "<Plug>(easymotion-overwin-line)")
 nmap("<leader>bd", ":wa | %bd | e# | bd# | :NvimTreeFindFile | <CR>")
 
 -- Mapping for dap (debugging)
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='⭐️', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
 nmap("<leader>dt", '<cmd>lua require"dap".toggle_breakpoint()<CR>')
 nmap("<leader>dq", '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
 nmap("<leader>dc", '<Cmd>lua require"dap".continue()<CR>')

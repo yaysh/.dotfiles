@@ -29,10 +29,12 @@ end
 
 -- Install the plugins
 packer.startup(function(use)
+    -- Code Coverage
     use 'wbthomason/packer.nvim' -- packer manages itself
     use 'nvim-lua/plenary.nvim' -- avoids callbacks, used by other plugins
     use 'nvim-lua/popup.nvim' -- popup for other plugins
     use 'nvim-treesitter/nvim-treesitter' -- language parsing completion engine
+    use 'nvim-treesitter/nvim-treesitter-context'
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
     use 'neovim/nvim-lspconfig' -- language server protocol implementation
@@ -49,14 +51,6 @@ packer.startup(function(use)
     use 'Shatur/neovim-ayu'
     use 'projekt0n/github-nvim-theme'
 
-    -- Code Coverage
-    use({
-        "andythigpen/nvim-coverage",
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("user.coverage")
-        end,
-    })
     -- Git
     use {
         'nvim-lualine/lualine.nvim',
@@ -104,8 +98,6 @@ packer.startup(function(use)
     use 'L3MON4D3/LuaSnip'
     use 'saadparwaiz1/cmp_luasnip'
 
-    -- test
-    use 'yaysh/JVMTestGenerator'
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if Packer_Bootstrap then

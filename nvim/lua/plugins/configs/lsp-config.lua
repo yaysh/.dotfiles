@@ -21,12 +21,13 @@ local on_attach = function(client, bufnr)
     nmap("<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
     nmap("<leader>fo", "<cmd>lua vim.lsp.buf.formatting()<CR>")
     nmap("<leader>k", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    nmap("<leader>ws", '<cmd>lua require"metals".worksheet_hover()<CR>')
     nmap("<leader>a", "<cmd>lua vim.diagnostic.setqflist()<CR>")
     nmap("]]", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
     nmap("[[", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
-    nmap("<leader>mm", '<cmd>lua require"telescope".extensions.metals.commands()<CR>')
     nmap("<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
+    nmap('<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder<CR>')
+    nmap('<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder<CR>')
+    nmap('<leader>D', '<cmd>lua vim.lsp.buf.type_definition<CR>')
 end
 
 local lsp_flags = {
@@ -34,7 +35,7 @@ local lsp_flags = {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 require('lspconfig')['tsserver'].setup {
     capabilities = capabilities,
@@ -78,10 +79,7 @@ require('lspconfig')['html'].setup {
     flags = lsp_flags,
     capabilities = capabilities
 }
--- require('lspconfig')['eslint'].setup {
---     on_attach = on_attach,
---     flags = lsp_flags
--- }
+
 require('lspconfig')['sumneko_lua'].setup {
     on_attach = on_attach,
     flags = lsp_flags

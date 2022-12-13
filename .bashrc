@@ -148,9 +148,11 @@ get_date() {
 # og
 export PS1="\u@\h\[\e[34m\] [\t\[$(tput sgr0)\]\[\e[34m\]] \[\e[32m\]\w \[\e[93m\]\$(parse_git_branch)\[\e[00m\]$ "
 # Used for code coverage of rust
-export RUSTFLAGS="-Cinstrument-coverage"
-export LLVM_PROFILE_FILE="jens-%p-%m.profraw"
 
 bind TAB:menu-complete
 
 . "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
