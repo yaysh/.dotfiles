@@ -32,16 +32,16 @@ nmap <leader>gi <action>(GotoImplementation)
 nmap <leader>gr <action>(FindUsages)
 nmap<leader>dc <Action>(Debug)
 nmap<leader>dq <action>(Resume)
-nmap<leader>bb <action>(Back)
 nmap <leader>ds <Action>(Stop)
 nmap <leader>dw <Action>(Debugger.AddToWatch)
 nmap <leader>dt <Action>(ToggleLineBreakpoint)
 nmap <leader>dm <Action>(DebuggerActions)
-nmap <leader><F10> <action>(StepOver)
-nmap <leader><F11> <action>(StepInto)
+nmap <leader>dso <action>(StepOver)
+nmap <leader>dsi <action>(StepInto)
 nmap <leader>df <action>(QuickEvaluateExpression)
 nmap K <action>(QuickEvaluateExpression)
-nmap <leader>t :NERDTreeToggle<CR>
-nmap <leader>n :NERDTreeFocus<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>nn :NERDTreeFocus<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 nmap <leader>vv <action>(EvaluateExpression)
 nmap <leader><leader>w <Plug>(easymotion-bd-w)

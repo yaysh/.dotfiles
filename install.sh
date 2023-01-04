@@ -1,3 +1,4 @@
+sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install ripgrep -y
 sudo apt-get install wget -y
 sudo apt install lm-sensors -y
@@ -18,6 +19,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
 unzip JetBrainsMono.zip -d ~/.fonts
 fc-cache -fv
+sudo apt-get install --reinstall gnome-control-center -y
 sudo sh ./after_git.sh
 
 
