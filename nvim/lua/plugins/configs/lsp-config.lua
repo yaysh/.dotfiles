@@ -43,6 +43,12 @@ require('lspconfig')['tsserver'].setup {
     flags = lsp_flags
 }
 
+require('lspconfig')['svelte'].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = { "svelte", "html" }
+}
 require('lspconfig')['tailwindcss'].setup {
     on_attach = on_attach,
     flags = lsp_flags
@@ -80,7 +86,7 @@ require('lspconfig')['html'].setup {
     capabilities = capabilities
 }
 
-require('lspconfig')['sumneko_lua'].setup {
+require('lspconfig')['lua_ls'].setup {
     on_attach = on_attach,
     flags = lsp_flags
 }

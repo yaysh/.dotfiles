@@ -30,9 +30,9 @@ end
 -- Install the plugins
 packer.startup(function(use)
     -- Code Coverage
-    use 'wbthomason/packer.nvim' -- packer manages itself
-    use 'nvim-lua/plenary.nvim' -- avoids callbacks, used by other plugins
-    use 'nvim-lua/popup.nvim' -- popup for other plugins
+    use 'wbthomason/packer.nvim'          -- packer manages itself
+    use 'nvim-lua/plenary.nvim'           -- avoids callbacks, used by other plugins
+    use 'nvim-lua/popup.nvim'             -- popup for other plugins
     use 'nvim-treesitter/nvim-treesitter' -- language parsing completion engine
     use 'nvim-treesitter/nvim-treesitter-context'
     use "williamboman/mason.nvim"
@@ -50,6 +50,7 @@ packer.startup(function(use)
     use "EdenEast/nightfox.nvim"
     use 'Shatur/neovim-ayu'
     use 'projekt0n/github-nvim-theme'
+    use 'navarasu/onedark.nvim'
 
     -- Git
     use {

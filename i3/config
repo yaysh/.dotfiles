@@ -17,7 +17,7 @@ exec_always --no-startup-id picom --config ~/.config/picom.conf
 exec --no-startup-id dex --autostart --environment i3
 
 # Start polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # No borders
 # for_window [class="^.*"] border pixel 0
@@ -201,3 +201,9 @@ bindsym $mod+r mode "resize"
 # }
 
 
+# Status bar
+bar {
+    status_command i3status
+    # font JetBrainsMono Nerd Font Mono 14
+    font pango:JetBrainsMono Nerd Font Mono 11
+}

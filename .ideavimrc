@@ -12,8 +12,8 @@ set incsearch
 let mapleader = " "
 
 noremap <Esc> <nop>
-nmap H <action>(PreviousTab)
-nmap L <action>(NextTab)
+nmap H <action>(PreviousTabexi)
+nmap L <action>(NextTabexi)
 nmap <leader>ww <action>(CloseEditor)
 nmap <leader>pp <action>(Profiler)
 nmap <leader>i <action>(Generate)
@@ -39,9 +39,11 @@ nmap <leader>dm <Action>(DebuggerActions)
 nmap <leader>dso <action>(StepOver)
 nmap <leader>dsi <action>(StepInto)
 nmap <leader>df <action>(QuickEvaluateExpression)
-nmap K <action>(QuickEvaluateExpression)
+nmap K <action>(QuickJavaDoc)
+nmap V <action>(EvaluateExpression)
 nmap <leader>nt :NERDTreeToggle<CR>
 nmap <leader>nn :NERDTreeFocus<CR>
 nmap <leader>nf :NERDTreeFind<CR>
 nmap <leader>vv <action>(EvaluateExpression)
 nmap <leader><leader>w <Plug>(easymotion-bd-w)
+nmap <leader>gg <Action>(Generate)
