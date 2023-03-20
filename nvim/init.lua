@@ -4,11 +4,11 @@ require('settings/options')
 -- Colors before setup
 -- require('colors/catpuccin')
 -- require('colors/gruvbox')
--- require('colors/github')
+require('colors/github')
 -- require('colors/nightfox')
 -- require('colors/everforest')
 -- require('colors/neovim-ayu')
-require('colors/onedark')
+-- require('colors/onedark')
 
 -- All configurations for plugins
 require('plugins/configs/cmp')
