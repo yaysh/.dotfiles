@@ -102,6 +102,7 @@ require("transparent").setup({
         -- NvimTree
         "NormalFloat",    -- plugins which have float panel such as Lazy, Mason, LspInfo
         "NvimTreeNormal", -- NvimTree
+        "NvimTreeEndOfBuffer",
 
         -- Bufferline
         "BufferLineInfoDiagnostic",
