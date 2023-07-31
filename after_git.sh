@@ -20,3 +20,8 @@ ln picom.conf ~/.config/picom.conf
 ln .tmux.conf ~/.tmux.conf
 
 chmod +x ~/.config/polybar/launch.sh
+chmod u+x nvim.appimage
+
+source ~/.bashrc
+
+

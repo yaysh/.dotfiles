@@ -101,7 +101,7 @@ alias sleepy='systemctl suspend'
 alias planner='flatpak run com.github.alainm23.planner'
 
 # Neovim - "correct version"
-alias nvim='~/Nvim/nvim.appimage'
+alias nvim='~/.dotfiles/nvim.appimage'
 
 alias notes='nvim ~/Notes/'
 
