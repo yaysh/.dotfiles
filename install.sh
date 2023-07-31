@@ -15,6 +15,9 @@ sudo apt-get install picom -y
 sudo apt-get install xclip -y
 sudo apt-get install feh -y
 sudo apt-get install flameshot -y
+# remove menubar from terminal
+gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
+gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
 unzip JetBrainsMono.zip -d ~/.fonts

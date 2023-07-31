@@ -6,12 +6,12 @@ require("transparent").setup({
         "CmpPmenuBorder",
         -- Lualine
         "lualine_x_filetype_DevIconLua_normal",
-"lualine_x_filetype_DevIconLua_insert",
-"lualine_x_filetype_DevIconLua_visual",
-"lualine_x_filetype_DevIconLua_replace",
-"lualine_x_filetype_DevIconLua_command",
-"lualine_x_filetype_DevIconLua_terminal",
-"lualine_x_filetype_DevIconLua_inactive",
+        "lualine_x_filetype_DevIconLua_insert",
+        "lualine_x_filetype_DevIconLua_visual",
+        "lualine_x_filetype_DevIconLua_replace",
+        "lualine_x_filetype_DevIconLua_command",
+        "lualine_x_filetype_DevIconLua_terminal",
+        "lualine_x_filetype_DevIconLua_inactive",
         --
         "lualine_b_terminal",
         "lualine_c_terminal",
@@ -103,6 +103,7 @@ require("transparent").setup({
         -- NvimTree
         "NvimTreeNormal",
 
+
         -- Bufferline
         "BufferLineInfoDiagnostic",
         "BufferLineInfoDiagnosticVisible",
@@ -162,8 +163,7 @@ require("transparent").setup({
         "BufferLineInfoVisible",
         "BufferLineInfoSelected",
         "BufferLineDevIconDefaultSelected",
-
         -- DevIcons hopefully
         "IconNameDevicon",
     }
-}) 
+})
