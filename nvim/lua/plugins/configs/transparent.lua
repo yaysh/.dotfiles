@@ -100,7 +100,7 @@ require("transparent").setup({
         "lualine_transitional_lualine_b_diff_modified_command_to_lualine_c_command",
 
         -- NvimTree
-        "NormalFloat",    -- plugins which have float panel such as Lazy, Mason, LspInfo
+        -- "NormalFloat",    -- plugins which have float panel such as Lazy, Mason, LspInfo
         "NvimTreeNormal", -- NvimTree
         "NvimTreeEndOfBuffer",
 
