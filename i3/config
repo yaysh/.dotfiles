@@ -5,6 +5,9 @@ set $mod Mod4
 font pango:monospace 8
 # font pango:JetBrains Mono Nerd 8
 
+#dark mode
+exec --no-startup-id /usr/lib/gsd-xsetting
+
 # Set background image
 set $bgPath = ~/Pictures/fern.jpg
 exec_always --no-startup-id feh --bg-scale $bgPath
@@ -207,3 +210,9 @@ bar {
     # font JetBrainsMono Nerd Font Mono 14
     font pango:JetBrainsMono Nerd Font Mono 11
 }
+
+# Reisize
+bindsym $mod+Mod1+l resize shrink width 1 px or 1 ppt
+bindsym $mod+Mod1+k resize grow height 1 px or 1 ppt
+bindsym $mod+Mod1+j resize shrink height 1 px or 1 ppt
+bindsym $mod+Mod1+h resize grow width 1 px or 1 ppt

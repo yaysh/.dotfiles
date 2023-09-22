@@ -60,7 +60,16 @@ packer.startup(function(use)
     -- use 'vim-airline/vim-airline'
     -- use 'vim-airline/vim-airline-themes'
     use 'airblade/vim-gitgutter'
-    use 'tpope/vim-fugitive'
+    use({
+        "kdheepak/lazygit.nvim",
+        requires = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("telescope").load_extension("lazygit")
+        end,
+    })
 
     -- Scala metals (or needed for it)
     use 'nvim-telescope/telescope.nvim'

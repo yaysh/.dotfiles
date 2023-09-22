@@ -44,6 +44,9 @@ nmap("<leader>dk", '<Cmd>lua require"dap.ui.widgets".hover()<CR>')
 nmap("<leader>dC", '<Cmd>lua require"dap".terminate()<CR>')
 nmap("<leader>dui", '<cmd>lua require"dapui".toggle()<CR>')
 
+-- LAZYGIT
+nmap("<leader>gg", ':LazyGit<CR>')
+
 -- NvimTree
 nmap("<leader>nn", ":NvimTreeFocus<CR>")
 nmap("<leader>nt", ':NvimTreeToggle<CR>')
