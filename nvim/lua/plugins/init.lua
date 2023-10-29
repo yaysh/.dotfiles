@@ -1,120 +1,100 @@
-local fn = vim.fn
--- Automatically install packer on initial startup
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-    Packer_Bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
-        install_path })
-    print "---------------------------------------------------------"
-    print "Press Enter to install packer and plugins."
-    print "After install -- close and reopen Neovim to load configs!"
-    print "---------------------------------------------------------"
-    vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand to reload neovim when you save plugins.lua
-vim.cmd [[
-   augroup packer_user_config
-      autocmd!
-      autocmd BufWritePost plugins.lua source <afile> | PackerSync
-   augroup end
-]]
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.maplocalleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
--- Use a protected call
-local present, packer = pcall(require, "packer")
-
-if not present then
-    return
-end
-
-
--- Install the plugins
-packer.startup(function(use)
-    -- Code Coverage
-    use 'wbthomason/packer.nvim'          -- packer manages itself
-    use 'nvim-lua/plenary.nvim'           -- avoids callbacks, used by other plugins
-    use 'nvim-lua/popup.nvim'             -- popup for other plugins
-    use 'nvim-treesitter/nvim-treesitter' -- language parsing completion engine
-    use 'nvim-treesitter/nvim-treesitter-context'
-    use "williamboman/mason.nvim"
-    use "williamboman/mason-lspconfig.nvim"
-    use 'neovim/nvim-lspconfig' -- language server protocol implementation
+require("lazy").setup({
+    -- avoids callbacks, used by other plugins
+    'nvim-lua/plenary.nvim',
+    -- popup for other plugins
+    'nvim-lua/popup.nvim',
+    -- language parsing completion engine
+    'nvim-treesitter/nvim-treesitter',
+    'nvim-treesitter/nvim-treesitter-context',
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    -- language server protocol implementation
+    'neovim/nvim-lspconfig' ,
 
     -- Themes
-    use 'sainnhe/everforest'
-    use { "ellisonleao/gruvbox.nvim" }
-    use({
-        "catppuccin/nvim",
-        as = "catppuccin"
-    })
-    use "EdenEast/nightfox.nvim"
-    use 'Shatur/neovim-ayu'
-    use 'projekt0n/github-nvim-theme'
-    use 'navarasu/onedark.nvim'
+    'sainnhe/everforest',
+    "ellisonleao/gruvbox.nvim",
+    "catppuccin/nvim",
+    "EdenEast/nightfox.nvim",
+    'Shatur/neovim-ayu';
+    'projekt0n/github-nvim-theme',
+    'navarasu/onedark.nvim',
 
     -- Git
-    use {
+    {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
-    -- use 'vim-airline/vim-airline'
-    -- use 'vim-airline/vim-airline-themes'
-    use 'airblade/vim-gitgutter'
-    use({
+        dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
+    },
+    -- 'vim-airline/vim-airline'
+    -- 'vim-airline/vim-airline-themes'
+    'airblade/vim-gitgutter',
+    {
         "kdheepak/lazygit.nvim",
-        requires = {
+        dependencies = {
             "nvim-telescope/telescope.nvim",
             "nvim-lua/plenary.nvim",
         },
         config = function()
             require("telescope").load_extension("lazygit")
         end,
-    })
+    },
 
     -- Scala metals (or needed for it)
-    use 'nvim-telescope/telescope.nvim'
-    use({
+    'nvim-telescope/telescope.nvim',
+    {
         "scalameta/nvim-metals",
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "mfussenegger/nvim-dap",
         },
-    })
-    use({
+    },
+    {
         "hrsh7th/nvim-cmp",
-        requires = {
+        dependencies = {
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-vsnip" },
             { "hrsh7th/vim-vsnip" },
         },
-    })
-    use 'rcarriga/nvim-dap-ui'
+    },
+    'rcarriga/nvim-dap-ui',
 
     -- A little feel good
-    use 'preservim/nerdcommenter'
-    use {
+    'preservim/nerdcommenter',
+    {
         'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icons
+        dependencies = {
+            'kyazdani42/nvim-web-devicons', -- lazyional, for file icons
         }
-    }
-    use 'easymotion/vim-easymotion'
-    use 'tpope/vim-surround'
-    use 'tpope/vim-commentary'
-    use 'tpope/vim-sensible'
-    use 'norcalli/nvim-colorizer.lua'
-    use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
-    use 'xiyaowong/nvim-transparent'
-    use 'L3MON4D3/LuaSnip'
-    use 'saadparwaiz1/cmp_luasnip'
-    use({
+    },
+    'easymotion/vim-easymotion',
+    'tpope/vim-surround',
+    'tpope/vim-commentary',
+    'tpope/vim-sensible',
+    'norcalli/nvim-colorizer.lua',
+    { 'akinsho/bufferline.nvim', version = "v2.*", dependencies = 'kyazdani42/nvim-web-devicons' },
+    'xiyaowong/nvim-transparent',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    {
         'folke/todo-comments.nvim',
-        requires = {
+        dependencies = {
             'nvim-lua/plenary.nvim'
         },
-    })
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if Packer_Bootstrap then
-        require('packer').sync()
-    end
-end)
+    }
+})
