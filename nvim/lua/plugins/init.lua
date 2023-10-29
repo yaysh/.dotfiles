@@ -15,8 +15,6 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 vim.g.maplocalleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 require("lazy").setup({
-    -- packer manages itself
-    'wbthomason/packer.nvim',
     -- avoids callbacks, used by other plugins
     'nvim-lua/plenary.nvim',
     -- popup for other plugins
