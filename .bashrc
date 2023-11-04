@@ -87,6 +87,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lg='lazygit'
 
 # Put computer to sleep (hibernation)
 alias sleepy='systemctl suspend'

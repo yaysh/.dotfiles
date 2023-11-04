@@ -56,7 +56,11 @@ require("lazy").setup({
     },
 
     -- Scala metals (or needed for it)
-    'nvim-telescope/telescope.nvim',
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.4',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
     {
         "scalameta/nvim-metals",
         dependencies = {
