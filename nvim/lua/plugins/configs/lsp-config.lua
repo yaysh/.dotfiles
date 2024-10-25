@@ -43,6 +43,12 @@ require('lspconfig')['tsserver'].setup {
     flags = lsp_flags
 }
 
+require('lspconfig').elixirls.setup {
+    cmd = { "elixir-ls" },
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
 require('lspconfig')['svelte'].setup {
     capabilities = capabilities,
     on_attach = on_attach,

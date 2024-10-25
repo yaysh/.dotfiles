@@ -12,8 +12,8 @@ set incsearch
 let mapleader = " "
 
 noremap <Esc> <nop>
-nmap H <action>(PreviousTabexi)
-nmap L <action>(NextTabexi)
+nmap H <action>(PreviousTab)
+nmap L <action>(NextTab)
 nmap <leader>ww <action>(CloseEditor)
 nmap <leader>pp <action>(Profiler)
 nmap <leader>i <action>(Generate)
@@ -24,6 +24,7 @@ nmap <leader>a <action>(ProblemsView.OpenInPreviewTab)
 nmap <leader>ee <action>(GotoNextError)
 nmap <leader>ef <action>(ShowErrorDescription)
 nmap <leader>ff <action>(GotoFile)
+nmap <C-p> <action>(GotoFile)
 nmap <leader>fg <action>(GotoSymbol)
 nmap <leader>fo <action>(ReformatCode)
 nmap <leader>k <action>(ShowIntentionActions)

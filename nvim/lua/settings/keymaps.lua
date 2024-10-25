@@ -43,7 +43,9 @@ nmap("<leader>dl", '<Cmd>lua require"dap".run_last()<CR>')
 nmap("<leader>dk", '<Cmd>lua require"dap.ui.widgets".hover()<CR>')
 nmap("<leader>dC", '<Cmd>lua require"dap".terminate()<CR>')
 nmap("<leader>dui", '<cmd>lua require"dapui".toggle()<CR>')
-
+-- nmap("<leader>qw", '<cmd>:%bd | e# | bd# | normal `\"<CR>')
+nmap("<leader>qw",
+    ':lua for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do if vim.bo[bufnr].filetype ~= "NvimTree" and bufnr ~= vim.fn.bufnr("%") then vim.api.nvim_buf_delete(bufnr, {}) end end<CR>')
 -- LAZYGIT
 nmap("<leader>gg", ':LazyGit<CR>')
 
