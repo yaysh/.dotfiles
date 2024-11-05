@@ -6,7 +6,8 @@ set scrolloff=6
 set number relativenumber
 set ideajoin
 set idearefactormode=keep
-set clipboard+=unnamed
+set clipboard+=unnamedplus
+set ignorecase
 Plug 'tpope/vim-surround'
 set incsearch
 let mapleader = " "
@@ -41,7 +42,7 @@ nmap <leader>dso <action>(StepOver)
 nmap <leader>dsi <action>(StepInto)
 nmap <leader>df <action>(QuickEvaluateExpression)
 nmap K <action>(QuickJavaDoc)
-nmap V <action>(EvaluateExpression)
+nmap <leader>vv <action>(EvaluateExpression)
 nmap <leader>nt :NERDTreeToggle<CR>
 nmap <leader>nn :NERDTreeFocus<CR>
 nmap <leader>nf :NERDTreeFind<CR>

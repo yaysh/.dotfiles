@@ -3,15 +3,14 @@ require('plugins')
 require('settings/options')
 -- Colors before setup
 -- require('colors/catpuccin')
--- require('colors/gruvbox')
+require('colors/gruvbox')
 -- require('colors/github')
 -- require('colors/nightfox')
-require('colors/everforest')
+-- require('colors/everforest')
 -- require('colors/neovim-ayu')
 -- require('colors/onedark')
 
 -- All configurations for plugins
-require('plugins/configs/cmp')
 require('plugins/configs/nvim-dap')
 require('plugins/configs/dap-ui')
 require('plugins/configs/mason')
@@ -22,9 +21,7 @@ require('plugins/configs/nvim-treesitter-context')
 require('plugins/configs/bufferline')
 require('plugins/configs/transparent')
 require('plugins/configs/nvim-colorizer')
-require('plugins/configs/luasnip')
 require('plugins/configs/metals-lsp')
-require('plugins/configs/todo-comments')
 
 -- All settings
 require('settings/keymaps')

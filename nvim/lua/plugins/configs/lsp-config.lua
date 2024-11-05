@@ -37,7 +37,9 @@ local lsp_flags = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-require('lspconfig')['tsserver'].setup {
+local lspconfig = require('lspconfig')
+
+lspconfig.ts_ls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags
@@ -49,18 +51,18 @@ require('lspconfig').elixirls.setup {
     capabilities = capabilities
 }
 
-require('lspconfig')['svelte'].setup {
+lspconfig.svelte.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
     filetypes = { "svelte", "html" }
 }
-require('lspconfig')['tailwindcss'].setup {
+lspconfig.tailwindcss.setup {
     on_attach = on_attach,
     flags = lsp_flags
 }
 
-require('lspconfig')['rust_analyzer'].setup {
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags,
@@ -86,13 +88,13 @@ require('lspconfig')['rust_analyzer'].setup {
         }
     }
 }
-require('lspconfig')['html'].setup {
+lspconfig.html.setup {
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
 }
 
-require('lspconfig')['lua_ls'].setup {
+lspconfig.lua_ls.setup {
     on_attach = on_attach,
     flags = lsp_flags
 }

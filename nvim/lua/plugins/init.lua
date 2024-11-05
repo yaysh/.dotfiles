@@ -92,13 +92,5 @@ require("lazy").setup({
     'tpope/vim-sensible',
     'norcalli/nvim-colorizer.lua',
     { 'akinsho/bufferline.nvim', version = "v2.*", dependencies = 'kyazdani42/nvim-web-devicons' },
-    'xiyaowong/nvim-transparent',
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
-    {
-        'folke/todo-comments.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        },
-    }
+    'xiyaowong/nvim-transparent'
 })
