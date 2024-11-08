@@ -41,19 +41,7 @@ require("lazy").setup({
         'nvim-lualine/lualine.nvim',
         dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
     },
-    -- 'vim-airline/vim-airline'
-    -- 'vim-airline/vim-airline-themes'
-    'airblade/vim-gitgutter',
-    {
-        "kdheepak/lazygit.nvim",
-        dependencies = {
-            "nvim-telescope/telescope.nvim",
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("telescope").load_extension("lazygit")
-        end,
-    },
+    'lewis6991/gitsigns.nvim',
 
     -- Scala metals (or needed for it)
     {
@@ -76,6 +64,13 @@ require("lazy").setup({
             { "hrsh7th/vim-vsnip" },
         },
     },
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
+    },
     'rcarriga/nvim-dap-ui',
 
     -- A little feel good
@@ -92,5 +87,5 @@ require("lazy").setup({
     'tpope/vim-sensible',
     'norcalli/nvim-colorizer.lua',
     { 'akinsho/bufferline.nvim', version = "v2.*", dependencies = 'kyazdani42/nvim-web-devicons' },
-    'xiyaowong/nvim-transparent'
+    'xiyaowong/nvim-transparent',
 })

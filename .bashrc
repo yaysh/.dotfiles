@@ -139,6 +139,11 @@ parse_git_branch() {
 get_date() {
     date +'%H:%M:%S'
 }     
+
+docup() {
+    docker compose down && docker compose up
+}
+
 # og
 # export PS1="\u@\h\[\e[34m\]\[[$(get_date)] \[\e[32m\]\w \[\e[93m\]\$(parse_git_branch)\[\e[00m\]$ "
 # og
@@ -167,3 +172,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 . "/home/jens/.deno/env"
+

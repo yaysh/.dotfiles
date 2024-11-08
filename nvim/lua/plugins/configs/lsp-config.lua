@@ -58,6 +58,7 @@ lspconfig.svelte.setup {
     filetypes = { "svelte", "html" }
 }
 lspconfig.tailwindcss.setup {
+    filetypes = { "html", "css", "heex", "ex", "exs" },
     on_attach = on_attach,
     flags = lsp_flags
 }
