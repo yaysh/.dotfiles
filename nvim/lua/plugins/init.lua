@@ -84,8 +84,12 @@ require("lazy").setup({
     'easymotion/vim-easymotion',
     'tpope/vim-surround',
     'tpope/vim-commentary',
-    'tpope/vim-sensible',
+    -- 'tpope/vim-sensible',
     'norcalli/nvim-colorizer.lua',
-    { 'akinsho/bufferline.nvim', version = "v2.*", dependencies = 'kyazdani42/nvim-web-devicons' },
+    { 
+        'akinsho/bufferline.nvim', 
+        version = "v2.*", 
+        dependencies = 'nvim-tree/nvim-web-devicons' 
+    },
     'xiyaowong/nvim-transparent',
 })

@@ -1,4 +1,4 @@
--- vim.api.nvim_set_hl(0, 'GitSsignsAddStaged', { link = 'GitSignsAdded', fg = '#498087')
+-- vim.api.nvim_set_hl(0, 'GitSignsAddStaged', { link = 'GitSignsAdded', fg = '#498087')
 require('gitsigns').setup {
 
     signs                        = {
