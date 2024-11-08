@@ -3,10 +3,10 @@ require('plugins')
 require('settings/options')
 -- Colors before setup
 -- require('colors/catpuccin')
-require('colors/gruvbox')
+-- require('colors/gruvbox')
 -- require('colors/github')
 -- require('colors/nightfox')
--- require('colors/everforest')
+require('colors/everforest')
 -- require('colors/neovim-ayu')
 -- require('colors/onedark')
 

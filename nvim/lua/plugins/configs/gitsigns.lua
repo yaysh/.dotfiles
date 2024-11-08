@@ -1,3 +1,4 @@
+-- vim.api.nvim_set_hl(0, 'GitSsignsAddStaged', { link = 'GitSignsAdded', fg = '#498087')
 require('gitsigns').setup {
 
     signs                        = {
@@ -10,6 +11,7 @@ require('gitsigns').setup {
     },
     signs_staged                 = {
         add          = { text = 's┃' },
+        -- add          = { text = 's┃', hl = 'GitSignsAdded' },
         change       = { text = 's┃' },
         delete       = { text = 's_' },
         topdelete    = { text = 's‾' },
@@ -26,11 +28,11 @@ require('gitsigns').setup {
     },
     auto_attach                  = true,
     attach_to_untracked          = false,
-    current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame           = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
     current_line_blame_opts      = {
         virt_text = true,
         virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-        delay = 1000,
+        delay = 1,
         ignore_whitespace = false,
         virt_text_priority = 100,
         use_focus = true,
@@ -58,5 +60,5 @@ require('gitsigns').setup {
         end
         map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end),
         map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
-    end
+    end,
 }

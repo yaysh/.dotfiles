@@ -32,6 +32,7 @@ nmap("<leader>bd", ":wa | %bd | e# | bd# | :NvimTreeFindFile | <CR>")
 -- Mapping for dap (debugging)
 vim.fn.sign_define('DapBreakpoint', { text = '🟥', texthl = '', linehl = '', numhl = '' })
 vim.fn.sign_define('DapStopped', { text = '⭐️', texthl = '', linehl = '', numhl = '' })
+
 nmap("<leader>dt", '<cmd>lua require"dap".toggle_breakpoint()<CR>')
 nmap("<leader>dq", '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
 nmap("<leader>dc", '<Cmd>lua require"dap".continue()<CR>')
@@ -60,6 +61,19 @@ nmap("<C-p>", ':terminal<CR>')
 -- Bufferlines
 nmap("L", ":BufferLineCycleNext<CR>")
 nmap("H", ":BufferLineCyclePrev<CR>")
+
+-- GIT
+nmap("]h", "<cmd>lua require'gitsigns'.next_hunk()<CR>")
+nmap("[h", "<cmd>lua require'gitsigns'.prev_hunk()<CR>")
+nmap('<leader>hS', '<cmd>lua require"gitsigns".stage_buffer()<CR>')
+nmap('<leader>hu', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>')
+nmap('<leader>hR', '<cmd>lua require"gitsigns".reset_buffer()<CR>')
+nmap('<leader>hp', '<cmd>lua require"gitsigns".preview_hunk()<CR>')
+nmap('<leader>hb', '<cmd>lua require"gitsigns".blame_line({full=true})<CR>')
+nmap('<leader>tb', '<cmd>lua require"gitsigns".toggle_current_line_blame()<CR>')
+nmap('<leader>hd', '<cmd>lua require"gitsigns".diffthis()<CR>')
+nmap('<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
+nmap('<leader>td', '<cmd>lua require"gitsigns".toggle_deleted()<CR>')
 
 nmap("<C-i>", "<C-i>zz")
 nmap("<C-o>", "<C-o>zz")

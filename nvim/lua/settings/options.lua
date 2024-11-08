@@ -1,20 +1,16 @@
+-- Global options
 vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.cmd("set number")
-vim.cmd("set relativenumber")
 vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.syntax = "on"
 vim.opt_global.completeopt = { "menuone", "noinsert", "noselect" }
--- vim.opt_global.shortmess:remove("F"):append("c")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.splitright = true
 vim.opt.termguicolors = true
 vim.opt.ignorecase = true
-vim.cmd("set clipboard+=unnamedplus")
--- vim.cmd("syntax on")
--- set cursorline
+vim.opt.clipboard:append("unnamedplus")
