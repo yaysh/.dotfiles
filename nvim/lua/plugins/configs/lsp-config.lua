@@ -45,8 +45,14 @@ lspconfig.ts_ls.setup {
     flags = lsp_flags
 }
 
-require('lspconfig').elixirls.setup {
-    cmd = { "elixir-ls" },
+-- require('lspconfig').elixirls.setup {
+--     cmd = { "elixir-ls" },
+--     on_attach = on_attach,
+--     capabilities = capabilities
+-- }
+
+require('lspconfig').lexical.setup {
+    cmd = { "lexical" },
     on_attach = on_attach,
     capabilities = capabilities
 }

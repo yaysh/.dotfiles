@@ -1,4 +1,4 @@
--- vim.api.nvim_set_hl(0, 'GitSignsAddStaged', { link = 'GitSignsAdded', fg = '#498087')
+vim.api.nvim_set_hl(0, 'GitSignsAddStaged', { link = 'GitSignsAdded', fg = '#3f7356' })
 require('gitsigns').setup {
 
     signs                        = {
@@ -10,13 +10,12 @@ require('gitsigns').setup {
         untracked    = { text = '┆' },
     },
     signs_staged                 = {
-        add          = { text = 's┃' },
-        -- add          = { text = 's┃', hl = 'GitSignsAdded' },
-        change       = { text = 's┃' },
-        delete       = { text = 's_' },
-        topdelete    = { text = 's‾' },
-        changedelete = { text = 's~' },
-        untracked    = { text = 's┆' },
+        add          = { text = 's┃', hl = 'GitSignsAddStaged' },
+        change       = { text = 's┃', hl = 'GitSignsAddStaged' },
+        delete       = { text = 's_', hl = 'GitSignsAddStaged' },
+        topdelete    = { text = 's‾', hl = 'GitSignsAddStaged' },
+        changedelete = { text = 's~', hl = 'GitSignsAddStaged' },
+        untracked    = { text = 's┆', hl = 'GitSignsAddStaged' },
     },
     signs_staged_enable          = true,
     signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
@@ -58,7 +57,7 @@ require('gitsigns').setup {
             opts.buffer = bufnr
             vim.keymap.set(mode, l, r, opts)
         end
-        map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end),
+        map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
         map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
     end,
 }

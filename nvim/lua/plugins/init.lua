@@ -42,6 +42,21 @@ require("lazy").setup({
         dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true }
     },
     'lewis6991/gitsigns.nvim',
+    {
+        "kdheepak/lazygit.nvim",
+        lazy = true,
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
 
     -- Scala metals (or needed for it)
     {
@@ -86,10 +101,9 @@ require("lazy").setup({
     'tpope/vim-commentary',
     -- 'tpope/vim-sensible',
     'norcalli/nvim-colorizer.lua',
-    { 
-        'akinsho/bufferline.nvim', 
-        version = "v2.*", 
-        dependencies = 'nvim-tree/nvim-web-devicons' 
+    {
+        'akinsho/bufferline.nvim',
+        dependencies = 'nvim-tree/nvim-web-devicons'
     },
     'xiyaowong/nvim-transparent',
 })

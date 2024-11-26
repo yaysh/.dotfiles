@@ -48,7 +48,7 @@ nmap("<leader>dui", '<cmd>lua require"dapui".toggle()<CR>')
 nmap("<leader>qw",
     ':lua for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do if vim.bo[bufnr].filetype ~= "NvimTree" and bufnr ~= vim.fn.bufnr("%") then vim.api.nvim_buf_delete(bufnr, {}) end end<CR>')
 -- LAZYGIT
-nmap("<leader>gg", ':LazyGit<CR>')
+nmap("<leader>lg", ':LazyGit<CR>')
 
 -- NvimTree
 nmap("<leader>nn", ":NvimTreeFocus<CR>")
@@ -65,6 +65,9 @@ nmap("H", ":BufferLineCyclePrev<CR>")
 -- GIT
 nmap("]h", "<cmd>lua require'gitsigns'.next_hunk()<CR>")
 nmap("[h", "<cmd>lua require'gitsigns'.prev_hunk()<CR>")
+
+nmap("<leader>hs", "<cmd>lua require'gitsigns'.stage_hunk()<CR>")
+nmap("<leader>hr", "<cmd>lua require'gitsigns'.reset_hunk()<CR>")
 nmap('<leader>hS', '<cmd>lua require"gitsigns".stage_buffer()<CR>')
 nmap('<leader>hu', '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>')
 nmap('<leader>hR', '<cmd>lua require"gitsigns".reset_buffer()<CR>')
